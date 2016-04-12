@@ -1,0 +1,760 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>淘宝</title>
+<script>
+var iScale=1/3;
+document.write('<meta name="viewport" content="width=device-width,initial-scale='+iScale+',minimum-scale='+iScale+',maximum-scale='+iScale+'" />')
+</script>
+<script>
+document.getElementsByTagName("html")[0].style.fontSize=document.documentElement.clientWidth/27+"px";
+</script>
+<style>
+body,h1,h2,h3,h4,h5,h6,ul,li,dl,dt,dd,p,table,tr,input,textarea{margin:0;padding:0; font-size:1rem;font-family: Arial,"宋体";}
+li{list-style:none;}
+html{height:100%;}
+.clear{content:"";display:block;clear:both;}
+body{margin:0 auto;background:#fff;height:100%; position:relative; overflow:hidden;}
+a{text-decoration:none;color:#666; font-size:0.8rem}
+img{ vertical-align:top;}
+html *{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+input,button{-webkit-appearance:none;}
+.fl{float:left}
+.fr{float:right}
+.bg{ background:#fff}
+.mt7{margin-top:0.7rem}
+.ml7{margin-left:0.7rem}
+.ml6{margin-left:0.625rem}
+.wrap{height:100%;overflow: auto; position:relative; margin:0 auto}
+.header{height:2.525rem;width:27rem;background:Red;box-shadow:0 0 0.125rem #000; position:absolute;left:0;top:0; border-bottom:0.025rem solid #f97839; z-index:10}
+.homepage{position:absolute;top:2.525rem;right:0;bottom:2.8rem;left:0; height:100%}
+.taoIco{background:url(Img/211.png) center/cover; position:absolute;left:0.3rem;top:0.625rem;width:1.9rem;height:1.4rem}
+.search{width:23.9rem;height:1.7rem; border-radius:0.15rem;background:#b52600; position:absolute;right:0.55rem;top:0.425rem}
+.search p{font-size:0.7rem;color:#fff;text-align:center;line-height:1.7rem; float:left;margin-left:8.6rem}
+.imgShow{ position:relative}
+.imgShow1 img{width:27rem;hright:8.45rem;}
+.imgLi{width:9.0rem;height:0.7rem; position:absolute;right:0.2rem;bottom:7.0rem;}
+.imgLi span{padding-left:0.5rem; float:left;width:0.65rem;height:0.7rem; display:block}
+.next{background:url(Img/214.png) no-repeat center;}
+.now{background:url(Img/213.png) no-repeat center;}
+.imgShow2 img{width:25rem;height:6.275rem;margin:0 1rem}
+.icoList{width:26rem;margin:0 0.5rem 0}
+.icoList p{width:6.5rem; text-align:center}
+.navMenu{height:11.75rem;border-bottom:0.075rem solid #e8e8e8; width:27rem}
+.icoList li{width:25%;height:5.85rem;text-align:center;float:left;font-size:0.8rem;vertical-align:middle}
+.icoList li:nth-of-type(1) span{display:block;background:url(Img/311.png) no-repeat center/cover; background-contain;width:3.3rem;height:3.3rem;margin:0.8rem 1.6rem 0.35rem 1.6rem;}
+.icoList li:nth-of-type(2) span{display:block;background:url(Img/312.png) no-repeat center/cover;width:3.3rem;height:3.3rem; margin:0.85rem 1.6rem 0.35rem 1.6rem}
+.icoList li:nth-of-type(3) span{display:block;background:url(Img/313.png) no-repeat center/cover;width:3.3rem;height:3.3rem;margin:0.8rem 1.6rem 0.35rem 1.6rem}
+.icoList li:nth-of-type(4) span{display:block;background:url(Img/314.png) no-repeat center/cover;width:3.3rem;height:3.3rem; margin:0.8rem 1.6rem 0.35rem 1.6rem}
+.icoList li:nth-of-type(5) span{display:block;background:url(Img/315.png) no-repeat center/cover;width:3.3rem;height:3.3rem; margin:0.8rem 1.6rem 0.35rem 1.6rem}
+.icoList li:nth-of-type(6) span{display:block;background:url(Img/316.png) no-repeat center/cover;width:3.3rem;height:3.3rem; margin:0.8rem 1.6rem 0.35rem 1.6rem}
+.icoList li:nth-of-type(7) span{display:block;background:url(Img/317.png) no-repeat center/cover;width:3.3rem;height:3.3rem; margin:0.8rem 1.6rem 0.35rem 1.6rem}
+.icoList li:nth-of-type(8) span{display:block;background:url(Img/318.png) no-repeat center/cover;width:3.3rem;height:3.3rem;margin:0.8rem 1.6rem 0.35rem 1.6rem}
+.topLine span{display:block;background:url(Img/215.png) no-repeat center/cover;width:4.25rem;height:1.25rem;margin:0.6rem 0.75rem 0rem}
+.topLine{height:2.45rem;border-bottom:0.025rem solid #a5c7a4}
+.hotTitle{float:left;height:2.05rem;margin:0.4rem 0 0; text-align:center;line-height:2.05rem}
+.hot{color:#d81421;border-radius:0.25rem;border:0.075rem solid #d81421;line-height:1.3rem;width:2.25rem;float:left;margin:0.35rem 0.75rem 0 0.75rem;}
+.content{float:left;border-left:0.05rem solid #a5c7a4;}
+.hotPicLi{border-top:0.05rem solid #a5c7a4;height:12.75rem; border-bottom:0.05rem solid #a5c7a4}
+.footNav{width:27rem;height:2.8rem;position:absolute;left:0;bottom:0; z-index:10; border-top:0.05rem solid #a5c7a4; background:#fff}
+.meunLi li{float:left;width:5.4rem;text-align:center;font-size:0.65rem}
+.meunLi span{margin:0.3rem 2rem 0.2rem}
+.meunLi li:nth-of-type(1) span{background:url(Img/411.png) no-repeat center/cover; display:block;width:1.4rem;height:1.4rem}
+.meunLi li:nth-of-type(2) span{background:url(Img/412.png) no-repeat center/cover; display:block;width:1.4rem;height:1.4rem}
+.meunLi li:nth-of-type(3) span{background:url(Img/413.png) no-repeat center/cover; display:block;width:1.4rem;height:1.4rem}
+.meunLi li:nth-of-type(4) span{background:url(Img/414.png) no-repeat center/cover; display:block;width:1.4rem;height:1.4rem}
+.meunLi li:nth-of-type(5) span{background:url(Img/415.png) no-repeat center/cover; display:block;width:1.4rem;height:1.4rem}
+.picTitle{font-size:0.9rem;line-height:2.4rem;background:#eeeeee;height:2.4rem}
+.leftB{background:url(Img/126.png) no-repeat center/cover; float:left; width:10.325rem;height:0.1rem; margin:1.2rem 0.4rem 0}
+.rightB{background:url(Img/126.png) no-repeat center/cover; float:right; width:10.325rem;height:0.1rem; margin:1.2rem 0.4rem 0}
+.rightBB{background:url(Img/136.png) no-repeat center/cover; float:left; width:7.125rem;height:0.1rem; margin:1.2rem 0.4rem 0}
+.more{background:url(Img/135.png) no-repeat center/cover; float:right;width:0.35rem;height:0.6rem;margin:1rem 0.45rem 0}
+.ico{width:1.5rem;height:1.5rem; float:left;margin:0.5rem 0.4rem 0 0}
+.ico1{background:url(Img/121.png) no-repeat center/cover}
+.ico2{background:url(Img/128.png) no-repeat center/cover;}
+.ico3{background:url(Img/129.png) no-repeat center/cover;}
+.ico4{background:url(Img/134.png) no-repeat center/cover;}
+.menuTitle{line-height:1.125rem;padding-top:0.7rem}
+.menuText{line-heigth:1rem}
+.menuTitle,.menuText {text-indent:1.1rem}
+.menuTitle a{color:#222;font-size:0.9rem}
+.menuText a{color:#999;font-size:0.7rem}
+.textLiL{width:13.475rem;border-right:0.05rem solid #e8e8e8}
+.textLiR{width:13.425rem;border-left:0.025rem solid #3dde6de}
+.goods{height:5.9rem}
+.money a{color:#ff5000;font-size:1rem}
+.goodsLi p{ margin:0 auto;width:11.6rem;padding-top:0.3rem;line-height:1.3rem;overflow:hidden; white-space:nowrap; text-overflow:ellipsis}
+.foot{border-top:0.025rem solid #8fa992;border-bottom:0.025rem solid #8fa992;}
+.foot li{float:left;padding:1.5rem 0.7rem;font-size:0.9rem; letter-spacing:0.075rem}
+.foot a{padding:0 1.3rem;line-height:2.5rem;border:0.15rem solid #42454d; border-radius:0.3rem;color:#ccc; float:left}
+.copyR a{line-height:1.7rem;color:#ccc; float:left;margin-left:6.85rem}
+.ico5{ background:url(Img/149.png) no-repeat center/cover;width:1.5rem;height:1.5rem; float:left;margin-right:0.6rem}
+.more1{background:url(Img/140.png) no-repeat center/cover;width:1.1rem;height:1.1rem; float:right;margin:0.75rem 0.6rem 0 0.4rem}
+.eveH{height:2.5rem;width:0.4rem; background:#ff9b43;border-right:0.025rem solid #e7bf89;border-bottom:0.025rem solid #e7bf89;}
+.imgLi1{width:4.8rem;height:0.75rem; position:absolute;right:0.2rem;bottom:0.3rem}
+.imgLi1 span{padding:0 0.2rem 0 0.3rem; float:left;width:0.75rem;height:0.75rem; display:block}
+.ico6{background:url(Img/212.png) no-repeat center/cover;width:1rem;height:1rem; float:left;margin:0.4rem}
+.goodsLi img{border:0.025rem solid #e9e9e9;border-bottom:none}
+</style>
+</head>
+<body>
+<header class="header">
+	<span class="taoIco"></span>
+	<div class="search">
+		<p><span class="ico6"></span>寻找宝贝店铺</p>
+	</div>
+</header>
+<div class="wrap">
+    <div class="homepage">
+        <div class="imgShow">
+            <a href="#"  class="imgShow1"><img src="Img/112.png"></a>
+            <div class="imgLi">
+                <a href="#"><span class="next"></span></a>
+                <a href="#"><span class="next"></span></a>
+                <a href="#"><span class="now"></span></a>
+                <a href="#"><span class="next"></span></a>
+                <a href="#"><span class="next"></span></a>
+                <a href="#"><span class="next"></span></a>
+                <a href="#"><span class="next"></span></a>
+                <a href="#"><span class="next"></span></a>
+            </div>
+            <a href="#" class="imgShow2"><img src="Img/111.png"></a>
+        </div>
+        <div class="navMenu clear">
+            <ul class="icoList clear">
+                <li>
+                    <a href="#"><span></span></a>
+                    <p><a href="#">天猫</a></p>
+                </li>
+                <li>
+                    <a href="#"><span></span>聚划算</a>
+                </li>
+                <li>
+                    <a href="#"><span></span>淘生活</a>
+                </li>
+                <li>
+                    <a href="#"><span></span>淘点点</a>
+                </li>
+                <li>
+                    <a href="#"><span></span>充值</a>
+                </li>
+                <li>
+                    <a href="#"><span></span>阿里旅行</a>
+                </li>
+                <li>
+                    <a href="#"><span></span>领金币</a>
+                </li>
+                <li>
+                    <a href="#"><span></span>分类</a>
+                </li>
+            </ul>
+        </div>
+        <div class="topLine">
+            <header class="hotTitle clear">
+            <div class="fl" style="width:5.85rem">
+            	<span><a href="#"></a></span>
+			</div>
+			<div class="content">
+                <a href="#" class="hot">热门</a>
+                <a href="#" style="font-size:0.9rem; font-weight:bold">ipad pro死机！苹果官方：只能重启</a>
+			</div>
+            </header>
+		</div>
+        <div class="hotPicLi clear">
+            <ul class="fl mt7 ml7">
+                <li>
+                    <a href="#"><img src="Img/113.png" style="width:12.5rem"></a>
+                </li>
+            </ul>
+            <ul class="fl mt7 ml6">
+                <li>
+                    <a href="#"><img src="Img/114.png" style="width:12.5rem"></a>
+                </li>
+                <li class="mt7">
+                    <a href="#"><img src="Img/115.png" style="width:12.5rem"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="clear" style="height:12.95rem;padding-top:0.85rem;">
+			<ul>
+                <li class="fl" style="width:10.8rem;border-right:0.05rem solid #e8e8e8">
+                    <a href="#"><img src="Img/116.png" style="width:10.8rem"></a>
+                </li>
+                 <li class="fl" style="width:9.5rem;border-left:0.025rem solid #d5e4d8;border-bottom:0.025rem solid #eaf1eb ">
+                    <a href="#"><img src="Img/117.png" style="width:9.5rem"></a>
+                </li>
+                <li class="fl" style="width:5.15rem;border-left:0.075rem solid #cfe4d3;border-bottom:0.025rem solid #eaf1eb ">
+                    <a href="#"><img src="Img/118.png" style="width:5.15rem"></a>
+                </li>
+                <li class="fl" style="width:8rem;border-left:0.025rem solid #dbe6dd;border-right:0.05rem solid #cfe4d3;">
+                    <a href="#"><img src="Img/119.png" style="width:8rem"></a>
+                </li>
+                <li class="fl" style="width:8rem;border-left:0.075rem solid #e8e8e8;">
+                    <a href="#"><img src="Img/120.png" style="width:8rem"></a>
+                </li>
+			</ul>
+		</div>
+        <div class="clear" style="height:19.05rem;">
+        	<header class="picTitle clear">
+            	<span class="leftB"></span>
+                <a href="#"  style="color:#fc1c07" class="fl"><span class="ico ico1"></span>超实惠</a>
+                <span class="rightB"></span>
+			</header>
+			<div class="clear" style="width:27rem;height:17.05rem;">
+            	<ul class="fl">
+                    <li class="fl" style="width:10.8rem;border-right:0.05rem solid #e8e8e8">
+                        <a href="#"><img src="Img/123.png" style="width:10.8rem"></a>
+                    </li>
+				</ul>
+				<ul class="fl" style="border-bottom:0.025rem solid #dadbda;">
+					<li style="width:5.35rem;border-left:0.025rem solid #d5e4d8;border-bottom:0.025rem solid #eff0ef ">
+                    	<a href="#"><img src="Img/150.png" style="width:5.35rem"></a>
+                	</li>
+                    <li style="width:5.35rem;border-left:0.025rem solid #d5e4d8;border-top:0.05rem solid #e8e8e8">
+                        <a href="#"><img src="Img/150.png" style="width:5.35rem"></a>
+                    </li>
+				</ul>
+                <ul class="fl" style="border-bottom:0.025rem solid #dadbda;">
+					<li style="width:5.3rem;border-left:0.025rem solid #d5e4d8;border-bottom:0.025rem solid #eff0ef ">
+                    	<a href="#"><img src="Img/127.png" style="width:5.3rem"></a>
+                	</li>
+                    <li style="width:5.3rem;border-left:0.025rem solid #d5e4d8;border-top:0.05rem solid #e8e8e8">
+                        <a href="#"><img src="Img/127.png" style="width:5.3rem"></a>
+                    </li>
+				</ul>
+                <ul class="fl" style="border-bottom:0.025rem solid #dadbda;">
+					<li style="width:5.35rem;border-left:0.025rem solid #d5e4d8;border-bottom:0.025rem solid #eff0ef ">
+                    	<a href="#"><img src="Img/150.png" style="width:5.35rem"></a>
+                	</li>
+                    <li style="width:5.35rem;border-left:0.025rem solid #d5e4d8;border-top:0.05rem solid #e8e8e8">
+                        <a href="#"><img src="Img/150.png" style="width:5.35rem"></a>
+                    </li>
+				</ul>
+        	</div>
+		</div>
+        <div class=" clear" style="height:18.15rem;border-image:url(Img/515.png) 6 6 round round;border-width:0;border-bottom-width:0.15rem;">
+        	<header class="picTitle clear">
+            	<span class="leftB"></span>
+                <a href="#"  style="color:#6a29a4" class="fl"><span class=" ico ico2"></span>好品质</a>
+                <span class="rightB"></span>
+			</header>
+			<ul class="clear" style="width:27rem;height:15.15rem;">
+                <li class="fl" style="width:16.15rem;border-right:0.025rem solid #e1e7e2;">
+                    <a href="#"><img src="Img/124.png" style="width:16.15rem"></a>
+                </li>
+                 <li class="fl" style="width:10.75rem;border-left:0.05rem solid #e8e8e8">
+                    <a href="#"><img src="Img/125.png" style="width:10.75rem"></a>
+                </li>
+                <li class="fl" style="width:5.3rem;border-left:0.05rem solid #e8e8e8;border-bottom:0.025rem solid #eaf1eb ">
+                    <a href="#"><img src="Img/122.png" style="width:5.3rem"></a>
+                </li>
+                <li class="fl" style="width:5.3rem;border-left:0.025rem solid #dbe6dd;border-right:0.05rem solid #cfe4d3;">
+                    <a href="#"><img src="Img/122.png" style="width:5.3rem"></a>
+                </li>
+                <li class="fl" style="width:5.25rem;border-left:0.075rem solid #e8e8e8;">
+                    <a href="#"><img src="Img/152.png" style="width:5.25rem"></a>
+                </li>
+                 <li class="fl" style="width:5.3rem;border-left:0.075rem solid #e8e8e8;">
+                    <a href="#"><img src="Img/127.png" style="width:5.3rem"></a>
+                </li>
+                 <li class="fl" style="width:5.3rem;border-left:0.075rem solid #e8e8e8;">
+                    <a href="#"><img src="Img/127.png" style="width:5.3rem"></a>
+                </li>
+			</ul>
+		</div>
+        <div class=" clear" style="height:19rem;">
+        	<header class="picTitle clear">
+            	<span class="leftB"></span>
+                <a href="#"  style="color:#dc9d09" class="fl"><span class="ico ico3"></span>有特色</a>
+                <span class="rightB"></span>
+			</header>
+			<div class="clear" style="width:27rem;height:17rem;">
+            	<ul class="fl" style="border-right:0.075rem solid #cfe4d3;">
+                    <li style="width:10.725rem;border-bottom:0.05rem solid #e9e9e9">
+                        <a href="#"><img src="Img/130.png" style="width:10.725rem"></a>
+                    </li>
+                    <li style="width:10.725rem">
+                        <a href="#"><img src="Img/130.png" style="width:10.725rem"></a>
+                    </li>
+                </ul>
+                <ul class="fl" style="border-left:0.025rem solid #d5e4d8;border-right:0.05rem solid #e9e9e9">
+                    <li style="width:5.35rem;border-bottom:0.05rem solid #eaf1eb ">
+                        <a href="#"><img src="Img/132.png" style="width:5.35rem"></a>
+                    </li>
+                    <li style="width:5.35rem;border-left:0.025rem solid #d5e4d8;border-bottom:0.025rem solid #eaf1eb ">
+                        <a href="#"><img src="Img/132.png" style="width:5.35rem"></a>
+                    </li>
+            	</ul>
+                <ul class="fl" style="border-left:0.05rem solid #d5e4d8;width:5.25rem;">
+                    <li style="width:5.3rem;border-bottom:0.075rem solid #eaf1eb ">
+                        <a href="#"><img src="Img/131.png" style="width:5.3rem"></a>
+                    </li>
+                    <li style="width:5.3rem;border-left:0.025rem solid #d5e4d8;border-bottom:0.075rem solid #eaf1eb ">
+                        <a href="#"><img src="Img/131.png" style="width:5.3rem"></a>
+                    </li>
+            	</ul>
+                <ul class="fl" style="border-left:0.05rem solid #d5e4d8;">
+                    <li style="width:5.3rem;border-bottom:0.05rem solid #eaf1eb ">
+                        <a href="#"><img src="Img/131.png" style="width:5.35rem"></a>
+                    </li>
+                    <li style="width:5.3rem;border-left:0.025rem solid #d5e4d8;border-bottom:0.025rem solid #eaf1eb ">
+                        <a href="#"><img src="Img/131.png" style="width:5.35rem"></a>
+                    </li>
+            	</ul>
+			</div>        
+		</div>
+        <div class="banner" >
+        	<a href="#"><img src="Img/133.png" style="width:27rem"></a>
+		</div>
+        <div class="hotMarket clear" style="height:26rem;border-top:0.05rem solid #e8e8e8;border-bottom:0.025rem solid #e0e0e0">
+        	<header class="picTitle clear">
+            	<span class="leftB"></span>
+                <a href="#"  style="color:#4fb41e" class="fl"><span class="ico ico4"></span>热门市场</a>
+                <span class="rightBB"></span>
+                <a href="#">更多<span class="more"></span></a>
+			</header>
+            <div class="textLi clear" style="width:27rem;height:24rem;">
+                <ul class="textLiL fl style="width:13.475rem;height:24rem;"">
+                    <li class="textLi">
+                        <p class="menuTitle"><a href="#">女装</a></p>
+                        <p class="menuText"><a href="#">冬季必备</a></p>
+                    </li>
+                    <li class="picLiL">
+                        <a href="#"><img src="Img/137.png" style="width:13.4758rem"></a>
+                    </li>
+                    <li class="textLiL clear" style="margin-left:0.5rem;">
+                        <div class="fl">
+                            <p class="menuTitle"><a href="#">鞋履</a></p>
+                            <p class="menuText"><a href="#">大牌精选</a></p>
+                        </div>
+                        <div class="fl" style="padding-left:2.5rem">
+                            <p class="menuTitle"><a href="#">美食</a></p>
+                            <p class="menuText"><a href="#">大牌精选</a></p>
+                        </div>
+                    </li>
+					<li class="picLiL" style="border-bottom:0.075rem solid #e8e8e8;">
+                        <a href="#"><img src="Img/138.png" style="width:6.4rem"></a>
+                        <a href="#"><img src="Img/139.png" style="width:6.15rem"></a>
+                    </li>
+                    <li class="textLiL clear" style="margin-left:0.5rem;">
+                        <div class="fl">
+                            <p class="menuTitle"><a href="#">网厅</a></p>
+                            <p class="menuText"><a href="#">送话费红包</a></p>
+                        </div>
+                        <div class="fl" style="padding-left:2.5rem"> 
+                            <p class="menuTitle"><a href="#">质+</a></p>
+                            <p class="menuText"><a href="#">有型有款</a></p>
+                        </div>
+                    </li>
+                    <li class="picLiL">
+                        <a href="#"><img src="Img/138.png" style="width:6.4rem"></a>
+                        <a href="#"><img src="Img/139.png" style="width:6.4rem"></a>
+                    </li>
+				</ul>
+                    <ul class="textLiR fl style="width:13.425rem;height:24rem;"">
+                    <li class="textLiR">
+                        <p class="menuTitle"><a href="#">每日首发</a></p>
+                        <p class="menuText"><a href="#">领券减100</a></p>
+                    </li>
+                    <li class="picLiR">
+                        <a href="#"><img src="Img/137.png" style="width:13.475rem"></a>
+                    </li>
+                    <li class="textLiR clear">
+                        <div class="fl">
+                            <p class="menuTitle"><a href="#">母婴</a></p>
+                            <p class="menuText"><a href="#">品牌特惠</a></p>
+                        </div>
+                        <div class="fl" style="padding-left:3.5rem">
+                            <p class="menuTitle"><a href="#">运动</a></p>
+                            <p class="menuText"><a href="#">新品推荐</a></p>
+                        </div>
+                    </li>
+                    <li class="picLiR" style="border-bottom:0.075rem solid #e8e8e8;">
+                        <a href="#"><img src="Img/138.png" style="width:6.4rem"></a>
+                        <a href="#"><img src="Img/139.png" style="width:6.4rem"></a>
+                    </li>
+                    <li class="textLiR clear">
+                        <div class="fl">
+                            <p class="menuTitle"><a href="#" style="color:#ff5000;">数码</a></p>
+                            <p class="menuText"><a href="#">抢半价</a></p>
+                        </div>
+                        <div class="fl" style="padding-left:3.5rem">
+                            <p class="menuTitle"><a href="#" style="color:#ff5000;">家电</a></p>
+                            <p class="menuText"><a href="#">9.9抵50</a></p>
+                        </div>
+                    </li>
+                    <li class="picLiR clear">
+                        <a href="#"><img src="Img/138.png" style="width:6.4rem"></a>
+                        <a href="#"><img src="Img/139.png" style="width:6.4rem"></a>
+                    </li>
+				</ul>
+			</div>	
+		</div>
+        <div class="banner" >
+        	<a href="#"><img src="Img/133.png" style="width:27rem"></a>
+		</div>
+        <div class="everyday bg clear" style="width:27rem;height:13.375rem; position:relative">
+        	<header class="clear">
+            	<div class="eveH fl"></div>
+                <a href="#" style="color:#222; font-weight:bold;line-height:2.55rem;font-size:1rem; padding-left:0.55rem" class="fl">每日好店</a>
+                <a href="#" style="font-weight:bold;line-height:2.55rem; float:right">更新50个好店<span class="more1"></span></a>
+			</header>
+            <div class="clear" style="width:26.25rem; margin:0 auto">
+                <ul class="eveL fl" style="width:13.225rem">
+                    <li class="fl" style="width:8.475rem;padding-right:0.2rem">
+                        <a href="#"><img src="Img/141.png" style="width:8.475rem"></a>
+                        <p style="line-height:2rem;padding-bottom:0.8rem"><a href="#" style="color:#222">今日推荐——-一天3波</a></p>
+                    </li>
+                    <li class="fl" style="width:4.2rem;padding-right:0.35rem">
+                        <a href="#" style="padding-bottom:0.125rem"><img src="Img/143.png" style="width:4.2rem;"></a>
+                        <a href="#"><img src="Img/143.png" style="width:4.2rem;"></a>
+                    </li>
+                </ul>
+                <ul class="eveR fl" style="width:13rem">
+                    <li class="fl" style="width:8.475rem;padding-right:0.1rem">
+                        <a href="#"><img src="Img/141.png" style="width:8.475rem"></a>
+                        <p style="line-height:2rem;padding-bottom:0.8rem"><a href="#" style="color:#222">女神の—店——美人装</a></p>
+                    </li>
+                    <li class="fl" style="width:4.2rem;">
+                        <a href="#" style="padding-bottom:0.125rem"><img src="Img/143.png" style="width:4.2rem;"></a>
+                        <a href="#"><img src="Img/143.png" style="width:4.2rem;"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="imgLi1">
+            	<a href="#"><span class="now"></span></a>
+                <a href="#"><span class="next"></span></a>
+                <a href="#"><span class="next"></span></a>
+                <a href="#"><span class="next"></span></a>
+            </div>
+		</div>
+        <div class="goodsLi">
+        	<header class="picTitle clear">
+            	<span class="leftB"></span>
+                <a href="#" class="fl">猜你喜欢</a>
+                <span class="rightB"></span>
+			</header> 
+            <div class="clear">
+            	<ul class="fl" style="width:13.4rem;border-right:0.1rem solid #eee">
+                	<li>
+                    	<a href="#"><img src="Img/144.png" style="width:13.4rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]【现货】日本吉川COOK-<br>PAL 铁制天妇罗锅 高端油炸 经济实惠 绿色健康</a></p>
+                            <p class="money"><a href="#">￥397.6</a></p>
+                       	</div>
+                   	</li>
+                    <li>
+                    	<a href="#"><img src="Img/144.png" style="width:13.4rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]【现货】日本吉川COOK-<br>PAL 铁制天妇罗锅 高端油炸 经济实惠 绿色健康</a></p>
+                            <p class="money"><a href="#">￥397.6</a></p>
+                       	</div>
+                   	</li>
+                    <li>
+                    	<a href="#"><img src="Img/144.png" style="width:13.4rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]【现货】日本吉川COOK-<br>PAL 铁制天妇罗锅 高端油炸 经济实惠 绿色健康</a></p>
+                            <p class="money"><a href="#">￥397.6</a></p>
+                       	</div>
+                   	</li>
+                    <li>
+                    	<a href="#"><img src="Img/144.png" style="width:13.4rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]【现货】日本吉川COOK-<br>PAL 铁制天妇罗锅 高端油炸 经济实惠 绿色健康</a></p>
+                            <p class="money"><a href="#">￥397.6</a></p>
+                       	</div>
+                   	</li>
+                    <li>
+                    	<a href="#"><img src="Img/144.png" style="width:13.4rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]【现货】日本吉川COOK-<br>PAL 铁制天妇罗锅 高端油炸 经济实惠 绿色健康</a></p>
+                            <p class="money"><a href="#">￥397.6</a></p>
+                       	</div>
+                   	</li> 
+                    <li>
+                    	<a href="#"><img src="Img/147.png" style="width:13.4rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]日本进口米桶密封储米箱<br>厨房装米桶塑料米缸防虫面粉防老鼠</a></p>
+                            <p class="money"><a href="#">￥44.1</a></p>
+                   		</div>
+               		</li>
+                    <li>
+                    	<a href="#"><img src="Img/147.png" style="width:13.4rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]日本进口米桶密封储米箱<br>厨房装米桶塑料米缸防虫面粉防老鼠</a></p>
+                            <p class="money"><a href="#">￥44.1</a></p>
+                   		</div>
+               		</li>
+                    <li>
+                    	<a href="#"><img src="Img/147.png" style="width:13.4rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]日本进口米桶密封储米箱<br>厨房装米桶塑料米缸防虫面粉防老鼠</a></p>
+                            <p class="money"><a href="#">￥44.1</a></p>
+                   		</div>
+               		</li>
+                    <li>
+                    	<a href="#"><img src="Img/147.png" style="width:13.4rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]日本进口米桶密封储米箱<br>厨房装米桶塑料米缸防虫面粉防老鼠</a></p>
+                            <p class="money"><a href="#">￥44.1</a></p>
+                   		</div>
+               		</li>
+                    <li>
+                    	<a href="#"><img src="Img/147.png" style="width:13.4rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]日本进口米桶密封储米箱<br>厨房装米桶塑料米缸防虫面粉防老鼠</a></p>
+                            <p class="money"><a href="#">￥44.1</a></p>
+                   		</div>
+               		</li>
+                    <li>
+                    	<a href="#"><img src="Img/144.png" style="width:13.4rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]【现货】日本吉川COOK-<br>PAL 铁制天妇罗锅 高端油炸 经济实惠 绿色健康</a></p>
+                            <p class="money"><a href="#">￥397.6</a></p>
+                       	</div>
+                   	</li>
+                    <li>
+                    	<a href="#"><img src="Img/144.png" style="width:13.4rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]【现货】日本吉川COOK-<br>PAL 铁制天妇罗锅 高端油炸 经济实惠 绿色健康</a></p>
+                            <p class="money"><a href="#">￥397.6</a></p>
+                       	</div>
+                   	</li>
+                    <li>
+                    	<a href="#"><img src="Img/144.png" style="width:13.4rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]【现货】日本吉川COOK-<br>PAL 铁制天妇罗锅 高端油炸 经济实惠 绿色健康</a></p>
+                            <p class="money"><a href="#">￥397.6</a></p>
+                       	</div>
+                   	</li>
+                    <li>
+                    	<a href="#"><img src="Img/144.png" style="width:13.4rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]【现货】日本吉川COOK-<br>PAL 铁制天妇罗锅 高端油炸 经济实惠 绿色健康</a></p>
+                            <p class="money"><a href="#">￥397.6</a></p>
+                       	</div>
+                   	</li>
+                    <li>
+                    	<a href="#"><img src="Img/144.png" style="width:13.4rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]【现货】日本吉川COOK-<br>PAL 铁制天妇罗锅 高端油炸 经济实惠 绿色健康</a></p>
+                            <p class="money"><a href="#">￥397.6</a></p>
+                       	</div>
+                   	</li> 
+                    <li>
+                    	<a href="#"><img src="Img/147.png" style="width:13.4rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]日本进口米桶密封储米箱<br>厨房装米桶塑料米缸防虫面粉防老鼠</a></p>
+                            <p class="money"><a href="#">￥44.1</a></p>
+                   		</div>
+               		</li>
+                    <li>
+                    	<a href="#"><img src="Img/147.png" style="width:13.4rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]日本进口米桶密封储米箱<br>厨房装米桶塑料米缸防虫面粉防老鼠</a></p>
+                            <p class="money"><a href="#">￥44.1</a></p>
+                   		</div>
+               		</li>
+                    <li>
+                    	<a href="#"><img src="Img/147.png" style="width:13.4rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]日本进口米桶密封储米箱<br>厨房装米桶塑料米缸防虫面粉防老鼠</a></p>
+                            <p class="money"><a href="#">￥44.1</a></p>
+                   		</div>
+               		</li>
+                    <li>
+                    	<a href="#"><img src="Img/147.png" style="width:13.4rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]日本进口米桶密封储米箱<br>厨房装米桶塑料米缸防虫面粉防老鼠</a></p>
+                            <p class="money"><a href="#">￥44.1</a></p>
+                   		</div>
+               		</li>
+                    <li>
+                    	<a href="#"><img src="Img/147.png" style="width:13.4rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]日本进口米桶密封储米箱<br>厨房装米桶塑料米缸防虫面粉防老鼠</a></p>
+                            <p class="money"><a href="#">￥44.1</a></p>
+                   		</div>
+               		</li>
+             	</ul>
+                <ul class="fl" style="width:13.325rem;border-right:0.1rem solid #eee">
+                	<li>
+                    	<a href="#"><img src="Img/145.png" style="width:13.325rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#" title="[热销]ZALMAN 扎曼ZM-GM4 K<br>NOSSOS 激光变形机械鼠标 光电感应 DPI10000+">[热销]ZALMAN 扎曼ZM-GM4 K<br>NOSSOS 激光变形机械鼠标 光电感应 DPI10000+</a></p>
+                            <p class="money"><a href="#">￥529.0</a></p>
+                   		</div>
+               		</li> 
+                    <li>
+                    	<a href="#"><img src="Img/145.png" style="width:13.325rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]ZALMAN 扎曼ZM-GM4 K<br>NOSSOS 激光变形机械鼠标 光电感应 DPI10000+</a></p>
+                            <p class="money"><a href="#">￥529.0</a></p>
+                   		</div>
+               		</li>
+                    <li>
+                    	<a href="#"><img src="Img/145.png" style="width:13.325rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]ZALMAN 扎曼ZM-GM4 K<br>NOSSOS 激光变形机械鼠标 光电感应 DPI10000+</a></p>
+                            <p class="money"><a href="#">￥529.0</a></p>
+                   		</div>
+               		</li>
+                    <li>
+                    	<a href="#"><img src="Img/145.png" style="width:13.325rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]ZALMAN 扎曼ZM-GM4 K<br>NOSSOS 激光变形机械鼠标 光电感应 DPI10000+</a></p>
+                            <p class="money"><a href="#">￥529.0</a></p>
+                   		</div>
+               		</li>
+                    <li>
+                    	<a href="#"><img src="Img/145.png" style="width:13.325rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]ZALMAN 扎曼ZM-GM4 K<br>NOSSOS 激光变形机械鼠标 光电感应 DPI10000+</a></p>
+                            <p class="money"><a href="#">￥529.0</a></p>
+                   		</div>
+               		</li>
+                    <li>
+                    	<a href="#"><img src="Img/146.png" style="width:13.325rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]新鲜甜角泰国甜酸角500g<br>野生甜酸角果干酸豆批发云南特产 酸甜可口</a></p>
+                            <p class="money"><a href="#">￥16.8</a></p>
+                   		</div>
+               		</li>
+                    <li>
+                    	<a href="#"><img src="Img/146.png" style="width:13.325rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]新鲜甜角泰国甜酸角500g<br>野生甜酸角果干酸豆批发云南特产 酸甜可口</a></p>
+                            <p class="money"><a href="#">￥16.8</a></p>
+                   		</div>
+               		</li>
+                    <li>
+                    	<a href="#"><img src="Img/146.png" style="width:13.325rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]新鲜甜角泰国甜酸角500g<br>野生甜酸角果干酸豆批发云南特产 酸甜可口</a></p>
+                            <p class="money"><a href="#">￥16.8</a></p>
+                   		</div>
+               		</li>
+                    <li>
+                    	<a href="#"><img src="Img/146.png" style="width:13.325rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]新鲜甜角泰国甜酸角500g<br>野生甜酸角果干酸豆批发云南特产 酸甜可口</a></p>
+                            <p class="money"><a href="#">￥16.8</a></p>
+                   		</div>
+               		</li>
+                    <li>
+                    	<a href="#"><img src="Img/146.png" style="width:13.325rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]新鲜甜角泰国甜酸角500g<br>野生甜酸角果干酸豆批发云南特产 酸甜可口</a></p>
+                            <p class="money"><a href="#">￥16.8</a></p>
+                   		</div>
+               		</li>
+                    <li>
+                    	<a href="#"><img src="Img/145.png" style="width:13.325rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#" title="[热销]ZALMAN 扎曼ZM-GM4 K<br>NOSSOS 激光变形机械鼠标 光电感应 DPI10000+">[热销]ZALMAN 扎曼ZM-GM4 K<br>NOSSOS 激光变形机械鼠标 光电感应 DPI10000+</a></p>
+                            <p class="money"><a href="#">￥529.0</a></p>
+                   		</div>
+               		</li> 
+                    <li>
+                    	<a href="#"><img src="Img/145.png" style="width:13.325rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]ZALMAN 扎曼ZM-GM4 K<br>NOSSOS 激光变形机械鼠标 光电感应 DPI10000+</a></p>
+                            <p class="money"><a href="#">￥529.0</a></p>
+                   		</div>
+               		</li>
+                    <li>
+                    	<a href="#"><img src="Img/145.png" style="width:13.325rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]ZALMAN 扎曼ZM-GM4 K<br>NOSSOS 激光变形机械鼠标 光电感应 DPI10000+</a></p>
+                            <p class="money"><a href="#">￥529.0</a></p>
+                   		</div>
+               		</li>
+                    <li>
+                    	<a href="#"><img src="Img/145.png" style="width:13.325rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]ZALMAN 扎曼ZM-GM4 K<br>NOSSOS 激光变形机械鼠标 光电感应 DPI10000+</a></p>
+                            <p class="money"><a href="#">￥529.0</a></p>
+                   		</div>
+               		</li>
+                    <li>
+                    	<a href="#"><img src="Img/145.png" style="width:13.325rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]ZALMAN 扎曼ZM-GM4 K<br>NOSSOS 激光变形机械鼠标 光电感应 DPI10000+</a></p>
+                            <p class="money"><a href="#">￥529.0</a></p>
+                   		</div>
+               		</li>
+                    <li>
+                    	<a href="#"><img src="Img/146.png" style="width:13.325rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]新鲜甜角泰国甜酸角500g<br>野生甜酸角果干酸豆批发云南特产 酸甜可口</a></p>
+                            <p class="money"><a href="#">￥16.8</a></p>
+                   		</div>
+               		</li>
+                    <li>
+                    	<a href="#"><img src="Img/146.png" style="width:13.325rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]新鲜甜角泰国甜酸角500g<br>野生甜酸角果干酸豆批发云南特产 酸甜可口</a></p>
+                            <p class="money"><a href="#">￥16.8</a></p>
+                   		</div>
+               		</li>
+                    <li>
+                    	<a href="#"><img src="Img/146.png" style="width:13.325rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]新鲜甜角泰国甜酸角500g<br>野生甜酸角果干酸豆批发云南特产 酸甜可口</a></p>
+                            <p class="money"><a href="#">￥16.8</a></p>
+                   		</div>
+               		</li>
+                    <li>
+                    	<a href="#"><img src="Img/146.png" style="width:13.325rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]新鲜甜角泰国甜酸角500g<br>野生甜酸角果干酸豆批发云南特产 酸甜可口</a></p>
+                            <p class="money"><a href="#">￥16.8</a></p>
+                   		</div>
+               		</li>
+                    <li>
+                    	<a href="#"><img src="Img/146.png" style="width:13.325rem"></a>
+                        <div class="goods">
+                            <p class="introduce"><a href="#">[热销]新鲜甜角泰国甜酸角500g<br>野生甜酸角果干酸豆批发云南特产 酸甜可口</a></p>
+                            <p class="money"><a href="#">￥16.8</a></p>
+                   		</div>
+               		</li>
+				</ul>
+			</div>
+		</div>
+        <footer class="footer">
+            <div style="border-bottom:0.025rem solid #bec7c1;padding-bottom:0.05rem">
+                <p style="color:#333;line-height:1.45rem;padding-bottom:0.4rem; text-align:center;font-size:0.8rem">宝贝已经看完了，00:00会更新哦</p>
+                <a href="#"><img src="Img/148.png" style="width:25.15rem;margin:0 auto;padding-left:0.925rem;padding-bottom:0.8rem"></a>     		
+            </div>
+            <div style="height:11.65rem;background:#4e525e;">
+                <ul class="clear foot">
+                    <li>
+                        <a href="#">登录</a>
+                    </li>
+                    <li>
+                        <a href="#">注册</a>
+                    </li>
+                    <li>
+                        <a href="#">电脑版</a>
+                    </li>
+                    <li>
+                        <a href="#">用户反馈</a>
+                    </li>
+                </ul>
+                 <p class=" clear copyR"><a href="#"><span class="ico5"></span>2015 浙 B2-20080224 服务中心</a></p>
+            </div>
+		</footer> 
+	</div>
+</div>
+<div class="footNav">
+    <ul class="meunLi">
+        <li><a href="#"><span></span>首页</a></li>
+        <li><a href="#"><span></span>物流</a></li>
+        <li><a href="#"><span></span>购物车</a></li>
+        <li><a href="#"><span></span>我的淘宝</a></li>
+        <li><a href="#"><span></span>更多</a></li>
+    </ul>
+</div>
+</body>
+</html>

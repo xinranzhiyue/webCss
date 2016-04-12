@@ -1,0 +1,996 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>uehtml</title>
+<script>
+var iScale=1;
+document.write('<meta name="viewport" content="width=device-width,initial-scale='+iScale+',minimum-scale='+iScale+',maximum-scale='+iScale+'" />')
+</script>
+<script>
+document.getElementsByTagName("html")[0].style.fontSize=document.documentElement.clientWidth/9+"px";
+</script>
+<style>
+body,h2,h3,h4,h5,ul,li,p,table,tr{margin:0;padding:0; font-size:12px;font-family:Arial, "微软雅黑";color:#000}
+html{height:100%;}
+body{background:#F1F1F1;height:100%; position:relative;}
+.clear:after{content:"";display:block;clear:both;}
+li{list-style:none;}
+a{text-decoration:none;}
+img{border:none; vertical-align:top;}
+.ma{margin:0 auto}
+.pr{position:relative;}
+.fl{float:left}
+.fr{float:right}
+.cfff{color:#fff !important}
+.pl10{padding-left:10px}
+.pa20{padding:20px}
+.fs0{font-size:0}
+.tc{text-align:center}
+.w1180{width:1180px}
+.wrap{height:250px}
+.headerBg{width:100%;height:50px;background:#323436; position:fixed; z-index:10}
+.hLogo{background:url(img/logo.png) no-repeat; float:left;width:132px;height:42px}
+.hNavL li{float:left;line-height:50px;margin-left:20px}
+.hNavL li a{color:#8c8c8c;padding:0 20px;font-size:14px}
+.icos{background:url(img/yy-icon.png) no-repeat;display:inline-block;}
+.ico1{width:9px;height:4px;background-position:-185px -717px; position:absolute;top:6px;right:0px}
+.Searchico{background:url(img/yy-rnsoh.png) no-repeat; float:left;width:30px;height:26px;margin-top:12px;margin-right:10px}
+.loginMenu{margin-top:10px;margin-left:10px;}
+.loginMenu a{float:left;font-size:14px;height:32px;line-height:32px;text-align:center;width:70px;}
+.login{background:#505050;color:#acacac;}
+.register{ background:#6bc30d;color:#fff}
+.moreIco{background:url(img/111.png); float:left;width:56px;height:50px;display:none; margin-left:20px}
+.banner img{width:100%;height:200px; }
+.banner{width:100%;height:200px;position:absolute;top:50px;}
+.bannerbody{width:100%;}
+.timeLi{width:420px;margin:0 auto;color:#729CB7; position:relative;top:-160px}
+.time li{float:left}
+.number{color:#00FFEA;font-size:48px; width:62px;display:inline-block;font-family:"HELVETICANEUELTPRO-THEX"}
+.unit{color:#729CB7;font-size:12px;}
+.border{height:40px;border-left:1px solid #385B72;display:inline-block;margin:0px 15px;position: relative;top: 4px;}
+.uemo{margin-top:20px;margin-left:80px;}
+.uemo a{font-size:14px;color:#FFF;background:#00B4DE;display:inline-block;width:120px;height: 30px;line-height:30px;text-align:center; float:left}
+#usign{background: #486D7F;color:#8096A4}
+.menubg{top:250px;position:absolute; z-index:3;height:40px;width:100%;padding:10px 0px;background-color:#F7F8F8;box-shadow:0px 1px 2px rgba(0, 0, 0, 0.1); margin:0 auto;border-bottom:3px solid #e2e2e2;}
+.navLi{width:510px}
+.navLi a{color:#535353;}
+.navLi li{width: 126px;float:left;height:40px;line-height:40px;text-align:center;color:#535353;}
+.now{background:#ededee;box-shadow:0px 1px 1px rgba(0, 0, 0, 0.11) inset;border:1px solid #d9dada}
+.ico2{width:9px;height:9px;background-position:-185px -658px;margin-left:10px}
+.ico3{width: 12px;height: 16px;background-position:-128px -524px; position:relative;top:4px;right:10px}
+.ico4{width:11px;height:16px;background-position:-251px -657px;position:relative;top:3px;right:10px}
+.ico5{width:16px;height:16px;background-position:-208px -388px;top:4px;position:relative;right:10px}
+.ico6{width:12px;height:14px;background-position:0px -657px;top:4px;position:relative;right:10px}
+#color{width:100px}
+.titleLi a{color:#1F8902;margin:0px 5px;max-width:150px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;display:inline-block;vertical-align:top;}
+.titleLi{width:535px;line-height:40px;}
+.turnIco{float:left;width:7px;margin-left:20px;}
+.ico7{width:7px;height:4px;background-position:-123px -724px;}
+.ico8{width:7px;height:4px;background-position:-123px -724px;transform: rotate(180deg);margin-top:10px;}
+.ico9{background-position: -281px -252px;}
+.ico10{background-position: -142px -322px;}
+.ico11{background-position: -262px -587px;}
+.content{height:auto;position:relative;z-index:1;background:#F1F1F1;padding-top:110px; margin:0 auto;}
+.picLi li{float:left;margin-right:20px;margin-bottom:46px;}
+.cite{width:280px;height:270px;background:#FFF;font-family:Arial;color:#BFBFBF;box-shadow:0px 1px 2px rgba(0, 0, 0, 0.1);}
+.cite img{width:280px;height:180px;}
+.citedata{width:auto;height:22px;padding:12px 20px 8px;}
+.citedata span{height:20px;line-height:20px;text-indent:25px;margin-right:15px;}
+.citefoot{border-top:1px solid #F2F2F2;margin-top:3px;height:22px;padding:12px 20px 9px;}
+.cite a{line-height:24px;color:#C0C0C0;}
+.fcfield{vertical-align:top;line-height:24px;height:24px; display:inline-block;margin-left:10px}
+.author{ margin-left:10px;display:inline-block;max-width:48px; height: 24px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.cite .authorImg{width:24px;height:24px}
+.authorIco{float:right;margin-top:2px;background:url(img/mo.png) no-repeat;width:16px;height:16px}
+.pages{width:1180px;padding-bottom:40px;height:36px;}
+.pages li{float:left;width:36px;height:36px;background:#FFF;line-height:36px;text-align:center;font-family:Arial;margin-right:5px;transition:background-color 0.2s ease-out 0s;}
+.pages a{color:#A9A9A9;width:36px;height:36px; float:left}
+.pages .pageNext a:hover{color:#FFF;background:#969696;}
+#more{background:none}
+.pages .pageNow{background:#70CA10;color:#FFF;}
+.ico12{width:11px;height:18px;background-position:-124px -656px;transform:rotate(180deg);margin-top:10px}
+.deHead{height:60px;border-bottom:1px solid #F0F1F1;text-indent:18px;line-height:60px;font-size:18px;color:#6B6B6B;}
+.designer{width:1180px;padding-bottom:40px;height:300px}
+.designerL{width:580px;height:300px;margin-right:20px;float:left;background:#FFF;}
+.designerR{width:580px;height:300px;float:left;background:#FFF;}
+.more{height:60px;width:99px;display:block;float:right;line-height:60px;text-align:center;font-size:14px;color:#7E7E7E;border-left:1px solid #F0F1F1;}
+.deLi{padding:20px;}
+.deLi li{width:270px;height:50px;margin-bottom:20px;float:left;}
+.deLi div{margin-left: 15px;float: left;margin-top: 3px;}
+.deLi p{font-size:12px;color:#AAA;margin-top:3px;}
+.deLi a{color: #696969;font-size: 14px;}
+.deIco{width:46px;height:46px; float:left}
+.uemoIco a{width:70px;height:60px;display:block;float:left;text-align:center;border-left:1px solid #F0F1F1;}
+.ico13{width:12px;height: 23px;background-position: -66px -524px;position:relative;top:8px;right:10px}
+.uemoE{width:540px;margin:20px;}
+.free{width:280px;height:300px;margin-left:20px; background:#fff; display:none}
+.free a{color:#515050;font-size:16px;line-height:70px;}
+.free p{font-size:12px;color:#7D7D7D;line-height:24px;margin-left:25px}
+.free img{width:280px;height:95px}
+.uemoE img{width:280px;height:180px}
+.uemoText{margin-left:20px;float:left;width:230px;color:#B3B3B3;margin-top:10px;}
+.uemoText a{display:block;color:#515050;font-size:16px;width:220px;white-space:nowrap;text-overflow:ellipsis;height:30px;line-height:30px;overflow:hidden;}
+time{font-family: Arial;font-size:12px;color:#B3B3B3;display:block;}
+.uemoE p{font-size:12px;margin-top:15px;color:#7D7D7D;line-height:24px;width:230px;height:100px;overflow:hidden;}
+.comMore{width:210px;}
+.company{width:1200px;padding-bottom:40px;height:auto; background:#fff;}
+.company li{float:left;width:125px;height:90px;margin-right:20px;margin-bottom:10px;}
+.company img{width:125px;height:60px}
+.company p{text-align:center;color:#5A5A5A;font-size:14px;margin-top:3px}
+.company span{color: #A8A8A8;padding-left:7px}
+.background{width:100%;height:40px; background:#f1f1f1; position:relative; z-index:10}
+.footer{width:100%;background:#222324;height:60px;padding:20px 0px;}
+.footer nav{width:1180px; margin:0 auto;}
+.footer a{color:#cecece}
+.footer p,span{color:#8e8e8e}
+.footTop li{float:left;padding:0 16px}
+.footTop{color:#8e8e8e;margin-left:-16px}
+.ico14{width:22px;height:17px;background-position: 0px -192px;position:relative;top:4px;right:0px}
+.Pheader{ display:none;width:9rem; background:#323436;height:1.25rem; position:absolute;left:0;top:0; z-index:10}
+.ueIco1{background:url(img/112.png) no-repeat;width:0.75rem;height:0.35rem;height:0.35rem; position:absolute;left:0.4rem;top:0.45rem}
+.ueIco2{background:url(img/logoP.png) no-repeat center/contain;width:2.5rem;height:0.8rem; position:absolute;left:3.3rem;top:0.25rem}
+.ueIco3{background:url(img/113.png) no-repeat center/contain;width:0.65rem;height:0.65rem;position:absolute;right:0.4rem;top:0.3rem}
+.ueIco4{background:url(img/115.png) no-repeat center/contain;width:0.4rem;height:0.3rem; display:inline-block; margin-top:0.1rem;margin-right:0.1rem}
+.uePhone{display:none;height:100%;overflow:auto;;margin:0 auto;position:relative;top:-1rem}
+.uePhone a{color:#666;font-size:0.3rem}
+.homepage{ position:absolute;top:1.25rem;right:0;bottom:0rem;left:0;height:100%}
+.picLiP img{width:3.5rem;height:2.25rem; float:left;padding-right:0.3rem;margin-left:0.25rem}
+.picLiP li{padding-bottom:0.5rem;height:2.25rem}
+.nav{width:9rem;height:1rem;line-height:1rem;padding-bottom:0.075rem}
+.nav li{width:3rem;float:left;text-align:center;}
+.nav a{position:relative;}
+.infor{color:#929292}
+.moreP{background:url(img/114.png) no-repeat center/contain;width:0.15rem;height:0.1rem; position:absolute;right:-0.4rem;top:0.1rem}
+.textP{float:left;width:4.5rem;height:2.25rem;font-size:0.3rem;line-height:0.5rem}
+.titleP{max-width:180px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;padding-top:0.3rem}
+.authorP{font-size:0.3rem;color:#b6b6b6}
+.authorP a{color:#b6b6b6}
+.infor{padding-top:0.35rem}
+.cbbfixed{position:fixed;right:10px;transition:bottom 0.3s ease 0s;bottom:10px;z-index:3;}
+#weixin{width:40px;height:40px;display:block;background:rgba(0, 0, 0, 0.2) none repeat}
+#gotop{background-color:rgba(51, 51, 51, 0.6);transition:background-color 0.3s ease 0s;margin-top:1px;width:40px;height:40px;display:block;}
+.ico15{width:40px;height:40px;background-position:0px -100px;}
+.ico16{width:40px;height:40px;background-position:-90px -100px;}
+@media all and (min-width:1881px)
+{
+	.header{width:1780px; margin:0 auto}
+	.picLi{width:1800px; margin:0 auto;}
+	.menu{width:1780px; margin:0 auto;}
+	.pages{width:1780px;}
+	.footer nav{width:1780px;margin:0 auto;}
+	.designer{width:1800px}
+	.company{width:1800px}
+	.free{display:block}
+}
+@media all and (min-width:1251px) and (max-width:1880px)
+{
+	.header{width:1180px; margin:0 auto}
+	.picLi{width:1200px; margin:0 auto;}
+	
+}
+@media all and (min-width:936px) and (max-width:1250px)
+{
+	.header{width:880px; margin:0 auto}
+	.moreIco{ display:block}
+	.hNavL{display:none}
+	.picLi{width:900px; margin:0 auto;}
+	.menu{width:880px; margin:0 auto;}
+	.pages{width:880px;}
+	.titleLi,.turnIco,.designer{display:none}
+	.company{width:920px}
+	.footer nav{width:880px;margin:0 auto;}
+}
+@media all and (min-width:580px) and (max-width:935px)
+{
+	.header{width:580px; margin:0 auto}
+	.moreIco{ display:block}
+	.hNavL{display:none}
+	.picLi{width:600px; margin:0 auto;}
+	.menu{width:580px; margin:0 auto;}
+	.pages{width:580px;}
+	.titleLi,.turnIco,.designer{display:none}
+	.company{width:620px}
+	.footer nav{width:580px;margin:0 auto;}
+}
+@media all and (min-width:0px) and (max-width:579px)
+{
+	.wrap,.menubg,.content,.company,.footer{display:none}
+	.uePhone{display:block}
+	.Pheader{ display:block}
+	.cbbfixed{display:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+	<header class="headerBg">
+    	<div class="header clear">
+            <a href="#" class="hLogo"></a>
+            <a href="#" class="moreIco"></a>
+            <ul class="hNavL fl">
+                <li><a href="#">发现</a></li>
+                <li><a href="#">文章</a></li>
+                <li><a href="#">设计师</a></li>
+                <li><a href="#">帮帮忙</a></li>
+                <li><a href="#" class="pr">更多<span class="icos ico1"></span></a></li>
+            </ul>
+            <div class="hNavR fr pr clear">
+                <div class="Searchico"></div>
+                <div class="loginMenu fl">
+                    <a href="#" class="login">登录</a>
+                    <a href="#" class="register">注册</a>
+                </div>
+            </div>
+		</div>
+	</header>
+	<div class="banner">
+    	<div class="bannerbody">
+            <a href="#"><img src="img/gamersky_14origin_27_2014111154415E.jpg"></a>
+            <div class="timeLi">
+                <ul class="time clear">
+                    <li>
+                        <span class="number">13</span><span class="unit">天</span>
+                    </li>
+                    <li class="border"></li>
+                    <li>
+                        <span class="number">02</span><span class="unit">时</span>
+                    </li>
+                    <li class="border"></li>
+                    <li>
+                        <span class="number">56</span><span class="unit">分</span>
+                    </li>
+                    <li class="border"></li>
+                    <li>
+                        <span class="number">27</span><span class="unit">秒</span>
+                    </li>
+                </ul>
+                <p class="tc" style="font-size:13px;position:relative;left: -5px;"><a href="#">每周二，抢U码！送个人网站！有码！任性！嫑钱！</a></p>
+                <p class="tc uemo clear">
+                    <a href="#">什么是UEMO</a>
+                    <a href="#" id="usign">抢u码</a>
+                </p>
+            </div>
+		</div>
+	</div>
+</div>
+<div class="menubg">
+	<div class="menu w1180 ma clear">
+    	<ul class="navLi fl">
+        	<li class="now">
+            	<a href="#">行业<span class="icos ico2"></span></a>
+			</li>
+            <li>
+            	<a href="#"><span class="icos ico3"></span>最新推荐<span class="icos ico2"></span></a>
+			</li>
+            <li id="color">
+            	<a href="#"><span class="icos ico4"></span>颜色<span class="icos ico2"></span></a>
+			</li>
+            <li>
+            	<a href="#"><span class="icos ico5"></span>所有者<span class="icos ico2"></span></a>
+			</li>
+		</ul>
+        <div class="titleLi fl">
+        	<p><span class="icos ico6"></span><a href="#">柠檬W--J</a>喜欢了<a href="#">高逼格UI设计师简历</a>11分钟前</p>
+		</div>
+		<div class="turnIco">
+        	<a href="#"><span class="icos ico7"></span></a>
+           	<a href="#"> <span class="icos ico8"></span></a>
+		</div>
+	</div>
+</div>
+<div class="content">
+    <ul class="picLi clear">
+        <li class="slide">
+            <a href="#"><img src="img/1449645815507.jpg"></a>
+        </li>
+        <li class="add">
+            <a href="#"><img src="img/15731.gif"></a>
+        </li>
+        <li class="add">
+            <a href="#"><img src="img/11-10.jpg"></a>
+        </li>
+        <li class="add">
+            <a href="#"><img src="img/11-10.jpg"></a>
+        </li>
+        <li class="cite">
+            <a href="#"><img src="img/1449488658440.jpg"></a>
+            <div class="citedata">
+                <span class="icos ico9">1355</span>
+                <span class="icos ico10">3</span>
+                <a href="#"><span class="icos ico11">5</span></a>
+            </div>
+            <div class="citefoot clear">
+                <a href="#" class="fl"><img src="img/1434440154613.png" class="authorImg"></a>
+                <a href="#"><span class="author">陈义正</span></a>
+                <span class="authorIco"></span></span> 
+                <span class="fcfield">
+                    (
+                    <a href="#">原创</a>
+                    -
+                    <a href="#">游戏网页</a>
+                    )
+                </span>
+            </div>
+        </li>
+        <li class="cite">
+            <a href="#"><img src="img/1449392146751.png"></a>
+            <div class="citedata">
+                <span class="icos ico9">1957</span>
+                <span class="icos ico10">1</span>
+                <a href="#"><span class="icos ico11">8</span></a>
+            </div>
+            <div class="citefoot clear">
+                <a href="#" class="fl"><img src="img/1395992009768.jpg" class="authorImg"></a>
+                <a href="#"><span class="author">王羽枫</span></a>
+                <span class="fcfield">
+                    (
+                    <a href="#">原创</a>
+                    -
+                    <a href="#">移动应用</a>
+                    )
+                </span>
+                <span class="authorIco"></span></span> 
+            </div>
+        </li>
+        <li class="cite">
+            <a href="#"><img src="img/1449571586264_280x180.jpg"></a>
+            <div class="citedata">
+                <span class="icos ico9">666</span>
+                <span class="icos ico10">5</span>
+                <a href="#"><span class="icos ico11">8</span></a>
+            </div>
+            <div class="citefoot clear">
+                <a href="#" class="fl"><img src="img/1449505403554.jpg" class="authorImg"></a>
+                <a href="#"><span class="author">maoxun19840424</span></a>
+                <span class="fcfield">
+                    (
+                    <a href="#">原创</a>
+                    -
+                    <a href="#">海报设计</a>
+                    )
+                </span>
+                <span class="authorIco"></span></span> 
+            </div>
+        </li>
+        <li class="cite">
+            <a href="#"><img src="img/1449576751785.jpg"></a>
+            <div class="citedata">
+                <span class="icos ico9">233</span>
+                <span class="icos ico10">2</span>
+                <a href="#"><span class="icos ico11">3</span></a>
+            </div>
+            <div class="citefoot clear">
+                <a href="#" class="fl"><img src="img/1389025562670.png" class="authorImg"></a>
+                <a href="#"><span class="author">白小仙2013</span></a>
+                <span class="fcfield">
+                    (
+                    <a href="#">原创</a>
+                    -
+                    <a href="#">专题活动</a>
+                    )
+                </span>
+                <span class="authorIco"></span>
+            </div>
+        </li>
+        <li class="cite">
+            <a href="#"><img src="img/1449488658440.jpg"></a>
+            <div class="citedata">
+                <span class="icos ico9">1355</span>
+                <span class="icos ico10">3</span>
+                <a href="#"><span class="icos ico11">5</span></a>
+            </div>
+            <div class="citefoot clear">
+                <a href="#" class="fl"><img src="img/1434440154613.png" class="authorImg"></a>
+                <a href="#"><span class="author">陈义正</span></a>
+                <span class="fcfield">
+                    (
+                    <a href="#">原创</a>
+                    -
+                    <a href="#">游戏网页</a>
+                    )
+                </span>
+                <span class="authorIco"></span></span> 
+            </div>
+        </li>
+        <li class="cite">
+            <a href="#"><img src="img/1449392146751.png"></a>
+            <div class="citedata">
+                <span class="icos ico9">1957</span>
+                <span class="icos ico10">1</span>
+                <a href="#"><span class="icos ico11">8</span></a>
+            </div>
+            <div class="citefoot clear">
+                <a href="#" class="fl"><img src="img/1395992009768.jpg" class="authorImg"></a>
+                <a href="#"><span class="author">王羽枫</span></a>
+                <span class="fcfield">
+                    (
+                    <a href="#">原创</a>
+                    -
+                    <a href="#">移动应用</a>
+                    )
+                </span>
+                <span class="authorIco"></span></span> 
+            </div>
+        </li>
+        <li class="cite">
+            <a href="#"><img src="img/1449571586264_280x180.jpg"></a>
+            <div class="citedata">
+                <span class="icos ico9">666</span>
+                <span class="icos ico10">5</span>
+                <a href="#"><span class="icos ico11">8</span></a>
+            </div>
+            <div class="citefoot clear">
+                <a href="#" class="fl"><img src="img/1449505403554.jpg" class="authorImg"></a>
+                <a href="#"><span class="author">maoxun19840424</span></a>
+                <span class="fcfield">
+                    (
+                    <a href="#">原创</a>
+                    -
+                    <a href="#">海报设计</a>
+                    )
+                </span>
+                <span class="authorIco"></span></span> 
+            </div>
+        </li>
+        <li class="cite">
+            <a href="#"><img src="img/1449576751785.jpg"></a>
+            <div class="citedata">
+                <span class="icos ico9">233</span>
+                <span class="icos ico10">2</span>
+                <a href="#"><span class="icos ico11">3</span></a>
+            </div>
+            <div class="citefoot clear">
+                <a href="#" class="fl"><img src="img/1389025562670.png" class="authorImg"></a>
+                <span class="author"><a href="#">白小仙2013</a></span>
+                <span class="fcfield">
+                    (
+                    <a href="#">原创</a>
+                    -
+                    <a href="#">专题活动</a>
+                    )
+                </span>
+                <span class="authorIco"></span>
+            </div>
+        </li>
+        <li class="cite">
+            <a href="#"><img src="img/1449488658440.jpg"></a>
+            <div class="citedata">
+                <span class="icos ico9">1355</span>
+                <span class="icos ico10">3</span>
+                <a href="#"><span class="icos ico11">5</span></a>
+            </div>
+            <div class="citefoot clear">
+                <a href="#" class="fl"><img src="img/1434440154613.png" class="authorImg"></a>
+                <a href="#"><span class="author">陈义正</span></a>
+                <span class="fcfield">
+                    (
+                    <a href="#">原创</a>
+                    -
+                    <a href="#">游戏网页</a>
+                    )
+                </span>
+                <span class="authorIco"></span></span> 
+            </div>
+        </li>
+        <li class="cite">
+            <a href="#"><img src="img/1449392146751.png"></a>
+            <div class="citedata">
+                <span class="icos ico9">1957</span>
+                <span class="icos ico10">1</span>
+                <a href="#"><span class="icos ico11">8</span></a>
+            </div>
+            <div class="citefoot clear">
+                <a href="#" class="fl"><img src="img/1395992009768.jpg" class="authorImg"></a>
+                <a href="#"><span class="author">王羽枫</span></a>
+                <span class="fcfield">
+                    (
+                    <a href="#">原创</a>
+                    -
+                    <a href="#">移动应用</a>
+                    )
+                </span>
+                <span class="authorIco"></span></span> 
+            </div>
+        </li>
+        <li class="cite">
+            <a href="#"><img src="img/1449571586264_280x180.jpg"></a>
+            <div class="citedata">
+                <span class="icos ico9">666</span>
+                <span class="icos ico10">5</span>
+                <a href="#"><span class="icos ico11">8</span></a>
+            </div>
+            <div class="citefoot clear">
+                <a href="#" class="fl"><img src="img/1449505403554.jpg" class="authorImg"></a>
+                <a href="#"><span class="author">maoxun19840424</span></a>
+                <span class="fcfield">
+                    (
+                    <a href="#">原创</a>
+                    -
+                    <a href="#">海报设计</a>
+                    )
+                </span>
+                <span class="authorIco"></span></span> 
+            </div>
+        </li>
+        <li class="cite">
+            <a href="#"><img src="img/1449576751785.jpg"></a>
+            <div class="citedata">
+                <span class="icos ico9">233</span>
+                <span class="icos ico10">2</span>
+                <a href="#"><span class="icos ico11">3</span></a>
+            </div>
+            <div class="citefoot clear">
+                <a href="#" class="fl"><img src="img/1389025562670.png" class="authorImg"></a>
+                <span class="author"><a href="#">白小仙2013</a></span>
+                <span class="fcfield">
+                    (
+                    <a href="#">原创</a>
+                    -
+                    <a href="#">专题活动</a>
+                    )
+                </span>
+                <span class="authorIco"></span>
+            </div>
+        </li>
+        <li class="cite">
+            <a href="#"><img src="img/1449488658440.jpg"></a>
+            <div class="citedata">
+                <span class="icos ico9">1355</span>
+                <span class="icos ico10">3</span>
+                <a href="#"><span class="icos ico11">5</span></a>
+            </div>
+            <div class="citefoot clear">
+                <a href="#" class="fl"><img src="img/1434440154613.png" class="authorImg"></a>
+                <a href="#"><span class="author">陈义正</span></a>
+                <span class="fcfield">
+                    (
+                    <a href="#">原创</a>
+                    -
+                    <a href="#">游戏网页</a>
+                    )
+                </span>
+                <span class="authorIco"></span></span> 
+            </div>
+        </li>
+        <li class="cite">
+            <a href="#"><img src="img/1449392146751.png"></a>
+            <div class="citedata">
+                <span class="icos ico9">1957</span>
+                <span class="icos ico10">1</span>
+                <a href="#"><span class="icos ico11">8</span></a>
+            </div>
+            <div class="citefoot clear">
+                <a href="#" class="fl"><img src="img/1395992009768.jpg" class="authorImg"></a>
+                <a href="#"><span class="author">王羽枫</span></a>
+                <span class="fcfield">
+                    (
+                    <a href="#">原创</a>
+                    -
+                    <a href="#">移动应用</a>
+                    )
+                </span>
+                <span class="authorIco"></span></span> 
+            </div>
+        </li>
+        <li class="cite">
+            <a href="#"><img src="img/1449571586264_280x180.jpg"></a>
+            <div class="citedata">
+                <span class="icos ico9">666</span>
+                <span class="icos ico10">5</span>
+                <a href="#"><span class="icos ico11">8</span></a>
+            </div>
+            <div class="citefoot clear">
+                <a href="#" class="fl"><img src="img/1449505403554.jpg" class="authorImg"></a>
+                <a href="#"><span class="author">maoxun19840424</span></a>
+                <span class="fcfield">
+                    (
+                    <a href="#">原创</a>
+                    -
+                    <a href="#">海报设计</a>
+                    )
+                </span>
+                <span class="authorIco"></span></span> 
+            </div>
+        </li>
+        <li class="cite">
+            <a href="#"><img src="img/1449576751785.jpg"></a>
+            <div class="citedata">
+                <span class="icos ico9">233</span>
+                <span class="icos ico10">2</span>
+                <a href="#"><span class="icos ico11">3</span></a>
+            </div>
+            <div class="citefoot clear">
+                <a href="#" class="fl"><img src="img/1389025562670.png" class="authorImg"></a>
+                <span class="author"><a href="#">白小仙2013</a></span>
+                <span class="fcfield">
+                    (
+                    <a href="#">原创</a>
+                    -
+                    <a href="#">专题活动</a>
+                    )
+                </span>
+                <span class="authorIco"></span>
+            </div>
+        </li>
+        <li class="cite">
+            <a href="#"><img src="img/1449488658440.jpg"></a>
+            <div class="citedata">
+                <span class="icos ico9">1355</span>
+                <span class="icos ico10">3</span>
+                <a href="#"><span class="icos ico11">5</span></a>
+            </div>
+            <div class="citefoot clear">
+                <a href="#" class="fl"><img src="img/1434440154613.png" class="authorImg"></a>
+                <a href="#"><span class="author">陈义正</span></a>
+                <span class="fcfield">
+                    (
+                    <a href="#">原创</a>
+                    -
+                    <a href="#">游戏网页</a>
+                    )
+                </span>
+                <span class="authorIco"></span></span> 
+            </div>
+        </li>
+        <li class="cite">
+            <a href="#"><img src="img/1449392146751.png"></a>
+            <div class="citedata">
+                <span class="icos ico9">1957</span>
+                <span class="icos ico10">1</span>
+                <a href="#"><span class="icos ico11">8</span></a>
+            </div>
+            <div class="citefoot clear">
+                <a href="#" class="fl"><img src="img/1395992009768.jpg" class="authorImg"></a>
+                <a href="#"><span class="author">王羽枫</span></a>
+                <span class="fcfield">
+                    (
+                    <a href="#">原创</a>
+                    -
+                    <a href="#">移动应用</a>
+                    )
+                </span>
+                <span class="authorIco"></span></span> 
+            </div>
+        </li>
+        <li class="cite">
+            <a href="#"><img src="img/1449571586264_280x180.jpg"></a>
+            <div class="citedata">
+                <span class="icos ico9">666</span>
+                <span class="icos ico10">5</span>
+                <a href="#"><span class="icos ico11">8</span></a>
+            </div>
+            <div class="citefoot clear">
+                <a href="#" class="fl"><img src="img/1449505403554.jpg" class="authorImg"></a>
+                <a href="#"><span class="author">maoxun19840424</span></a>
+                <span class="fcfield">
+                    (
+                    <a href="#">原创</a>
+                    -
+                    <a href="#">海报设计</a>
+                    )
+                </span>
+                <span class="authorIco"></span></span> 
+            </div>
+        </li>
+    </ul>
+    <div class="pages ma">
+        <ul>
+            <li class="pageNow"><a href="#" class="cfff">1</a></li>
+            <li class="pageNext"><a href="#">2</a></li>
+            <li class="pageNext"><a href="#">3</a></li>
+            <li class="pageNext"><a href="#">4</a></li>
+            <li class="pageNext"><a href="#">5</a></li>
+            <li id="more"><span>...</span></li>
+            <li class="pageNext"><a href="#">197</a></li>
+            <li class="pageNext"><a href="#"><span class="icos ico12"></span></a></li>
+        </ul>
+    </div>
+    <div class="designer ma clear">
+    	<div class="designerL">
+            <header class="deHead">
+                推荐设计师<a href="#" class="more">更多</a>
+            </header>
+            <ul class="deLi clear">
+            	<li>
+                	<a href="#"><img src="img/1437356923802.jpg" class="deIco"></a>
+                    <div>
+                    	<a href="#">drop</a>
+                        <p>上传：3 <span class="pl10"></span>人气：2223</p>
+                    </div>
+              	</li>
+                <li>
+                	<a href="#"><img src="img/1422097800239.jpg" class="deIco"></a>
+                    <div>
+                    	<a href="#">zoe</a>
+                        <p>上传：11 <span class="pl10"></span>人气：8177</p>
+                    </div>
+              	</li>
+                <li>
+                	<a href="#"><img src="img/1437356923802.jpg" class="deIco"></a>
+                    <div>
+                    	<a href="#">drop</a>
+                        <p>上传：3 <span class="pl10"></span>人气：2223</p>
+                    </div>
+              	</li>
+                <li>
+                	<a href="#"><img src="img/1422097800239.jpg" class="deIco"></a>
+                    <div>
+                    	<a href="#">zoe</a>
+                        <p>上传：11 <span class="pl10"></span>人气：8177</p>
+                    </div>
+              	</li>
+                <li>
+                	<a href="#"><img src="img/1437356923802.jpg" class="deIco"></a>
+                    <div>
+                    	<a href="#">drop</a>
+                        <p>上传：3 <span class="pl10"></span>人气：2223</p>
+                    </div>
+              	</li>
+                <li>
+                	<a href="#"><img src="img/1422097800239.jpg" class="deIco"></a>
+                    <div>
+                    	<a href="#">zoe</a>
+                        <p>上传：11 <span class="pl10"></span>人气：8177</p>
+                    </div>
+              	</li>
+        	</ul>
+    	</div>
+        <div class="designerR clear">
+            <header class="deHead f">
+                UEMO企业模板推荐<a href="#" class="more">更多</a>
+                <div class="uemoIco fr">
+                    <a href="#"><span class="icos ico13"></span></a>
+                    <a href="#"><span class="icos ico13" style="transform: rotate(180deg);"></span></a>
+                 </div>
+            </header>
+            <div class="uemoE clear fl">
+                <a href="#" class="fl"><img src="img/uemo01.jpg"></a>
+                <div class="uemoText fl">
+                    <a href="#">魔艺(UEMO)企业版</a>
+                    <time>2015/11/11</time>
+                    <p>预算低、周期短、需求高、高品质网站怎么可能？UEmo让一切不可能变为可能！...</p>
+                </div>
+            </div>
+        </div>
+        <div class="free fl">
+             <a href="#" class="fl"><img src="img/html5.png"></a>
+             <a href="#" style="margin-left:25px">素材下载</a>
+             <p>国外优秀资源下载，素材仅供交流与学习哦，版权为原作者们所有滴呦！...</p>
+        </div>
+        <div class="free fl">
+             <a href="#" class="fl"><img src="img/html5.png"></a>
+             <a href="#"  style="margin-left:25px">素材下载</a>
+             <p>国外优秀资源下载，素材仅供交流与学习哦，版权为原作者们所有滴呦！...</p>
+        </div>
+	</div>
+</div>
+    <div class="company ma">
+        <header class="deHead">
+            设计公司推荐<a href="#" class="more comMore fr">商务洽谈QQ：407280793</a>
+        </header>
+        <ul class="pa20 clear">
+            <li>
+                <a href="#"><img src="img/psqietu.jpg"></a>
+                <p>优艺客<span>(北京)</span></p>
+            </li>
+            <li>
+                <a href="#"><img src="img/psqietu.jpg"></a>
+                <p>优艺客<span>(北京)</span></p>
+            </li>
+            <li>
+                <a href="#"><img src="img/psqietu.jpg"></a>
+                <p>优艺客<span>(北京)</span></p>
+            </li>
+            <li>
+                <a href="#"><img src="img/psqietu.jpg"></a>
+                <p>优艺客<span>(北京)</span></p>
+            </li>
+            <li>
+                <a href="#"><img src="img/psqietu.jpg"></a>
+                <p>优艺客<span>(北京)</span></p>
+            </li>
+            
+            <li>
+                <a href="#"><img src="img/psqietu.jpg"></a>
+                <p>优艺客<span>(北京)</span></p>
+            </li>
+            <li>
+                <a href="#"><img src="img/psqietu.jpg"></a>
+                <p>优艺客<span>(北京)</span></p>
+            </li>
+            <li>
+                <a href="#"><img src="img/psqietu.jpg"></a>
+                <p>优艺客<span>(北京)</span></p>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="background"></div>
+<footer class="footer">
+	<nav>
+    	<ul class="footTop clear">
+            <li><a href="#">关于我们</a></li>
+            <li><a href="#">发展历程</a></li>
+            <li><a href="#">友情链接</a></li>
+            <li><a href="#">意见反馈</a></li>
+            <li><a href="#"><span class="icos ico14"></span></a></li>
+            <li><span>QQ群：385402482</span></li>
+            <li><span>UEMO群： 373302682</span></li>
+            <a href="#" class="fr"><img src="img/hy_83x30.png"></a>
+		</ul>
+        <p>Copyright (c) 2013 <a href="#" style="color:#55ca14">uelike.com. </a>All Rights Reserved V 1.8.5 京ICP备13015845号-1</p>
+	</nav>
+</footer>
+<header class="Pheader">
+    <span class="ueIco1"></span>
+    <span class="ueIco2"></span>
+    <span class="ueIco3"></span>
+</header>
+<div class="uePhone">
+	<div class="homepage">
+        <ul class="nav clear">
+            <li><a href="#">全部<span class="moreP"></span></a></li>
+            <li><a href="#">最新推荐<span class="moreP"></span></a></li>
+            <li><a href="#">所有者<span class="moreP"></span></a></li>
+        </ul>
+        <ul class="picLiP">
+        	<li>
+            	<a href="#"><img src="img/1449576751785.jpg"></a>
+                <div class="textP">
+                    <div class="titleP">
+                        <a href="#">巴厘岛</a>|
+                        <a href="#">九寨</a>|
+                        <a href="#">七夕</a>|
+                        <a href="#">普吉岛</a>|
+                        <a href="#">广岛</a>|
+                    </div>
+                    <p class="authorP">作者：<a href="#">白小仙2013</a></p>
+                    <div class="infor clear">
+                        <span class="ueIco4 fl"></span>329
+                        <span class="fr">专题活动</span>
+                    </div>
+                </div>
+         	</li>
+            <li>
+            	<a href="#"><img src="img/1449571586264_280x180.jpg"></a>
+                <div class="textP">
+                    <div class="titleP">
+                    <a href="#">燃烧吧少年 竞技版海报</a>
+                    </div>
+                    <p class="authorP">作者：<a href="#">maoxun19840424</a></p>
+                    <div class="infor clear">
+                        <span class="ueIco4 fl"></span>387
+                        <span class="fr">专题活动</span>
+                    </div>
+              	</div>
+         	</li>
+            <li>
+            	<a href="#"><img src="img/1449576751785.jpg"></a>
+                <div class="textP">
+                    <div class="titleP">
+                        <a href="#">巴厘岛</a>|
+                        <a href="#">九寨</a>|
+                        <a href="#">七夕</a>|
+                        <a href="#">普吉岛</a>|
+                        <a href="#">广岛</a>|
+                    </div>
+                    <p class="authorP">作者：<a href="#">白小仙2013</a></p>
+                    <div class="infor clear">
+                        <span class="ueIco4 fl"></span>329
+                        <span class="fr">专题活动</span>
+                    </div>
+                </div>
+         	</li>
+            <li>
+            	<a href="#"><img src="img/1449571586264_280x180.jpg"></a>
+                <div class="textP">
+                    <div class="titleP">
+                    <a href="#">燃烧吧少年 竞技版海报</a>
+                    </div>
+                    <p class="authorP">作者：<a href="#">maoxun19840424</a></p>
+                    <div class="infor clear">
+                        <span class="ueIco4 fl"></span>387
+                        <span class="fr">专题活动</span>
+                    </div>
+              	</div>
+         	</li>
+            <li>
+            	<a href="#"><img src="img/1449576751785.jpg"></a>
+                <div class="textP">
+                    <div class="titleP">
+                        <a href="#">巴厘岛</a>|
+                        <a href="#">九寨</a>|
+                        <a href="#">七夕</a>|
+                        <a href="#">普吉岛</a>|
+                        <a href="#">广岛</a>|
+                    </div>
+                    <p class="authorP">作者：<a href="#">白小仙2013</a></p>
+                    <div class="infor clear">
+                        <span class="ueIco4 fl"></span>329
+                        <span class="fr">专题活动</span>
+                    </div>
+                </div>
+         	</li>
+            <li>
+            	<a href="#"><img src="img/1449571586264_280x180.jpg"></a>
+                <div class="textP">
+                    <div class="titleP">
+                    <a href="#">燃烧吧少年 竞技版海报</a>
+                    </div>
+                    <p class="authorP">作者：<a href="#">maoxun19840424</a></p>
+                    <div class="infor clear">
+                        <span class="ueIco4 fl"></span>387
+                        <span class="fr">专题活动</span>
+                    </div>
+              	</div>
+         	</li>
+            <li>
+            	<a href="#"><img src="img/1449576751785.jpg"></a>
+                <div class="textP">
+                    <div class="titleP">
+                        <a href="#">巴厘岛</a>|
+                        <a href="#">九寨</a>|
+                        <a href="#">七夕</a>|
+                        <a href="#">普吉岛</a>|
+                        <a href="#">广岛</a>|
+                    </div>
+                    <p class="authorP">作者：<a href="#">白小仙2013</a></p>
+                    <div class="infor clear">
+                        <span class="ueIco4 fl"></span>329
+                        <span class="fr">专题活动</span>
+                    </div>
+                </div>
+         	</li>
+            <li>
+            	<a href="#"><img src="img/1449571586264_280x180.jpg"></a>
+                <div class="textP">
+                    <div class="titleP">
+                    <a href="#">燃烧吧少年 竞技版海报</a>
+                    </div>
+                    <p class="authorP">作者：<a href="#">maoxun19840424</a></p>
+                    <div class="infor clear">
+                        <span class="ueIco4 fl"></span>387
+                        <span class="fr">专题活动</span>
+                    </div>
+              	</div>
+         	</li>
+            <li>
+            	<a href="#"><img src="img/1449576751785.jpg"></a>
+                <div class="textP">
+                    <div class="titleP">
+                        <a href="#">巴厘岛</a>|
+                        <a href="#">九寨</a>|
+                        <a href="#">七夕</a>|
+                        <a href="#">普吉岛</a>|
+                        <a href="#">广岛</a>|
+                    </div>
+                    <p class="authorP">作者：<a href="#">白小仙2013</a></p>
+                    <div class="infor clear">
+                        <span class="ueIco4 fl"></span>329
+                        <span class="fr">专题活动</span>
+                    </div>
+                </div>
+         	</li>
+            <li>
+            	<a href="#"><img src="img/1449571586264_280x180.jpg"></a>
+                <div class="textP">
+                    <div class="titleP">
+                    <a href="#">燃烧吧少年 竞技版海报</a>
+                    </div>
+                    <p class="authorP">作者：<a href="#">maoxun19840424</a></p>
+                    <div class="infor clear">
+                        <span class="ueIco4 fl"></span>387
+                        <span class="fr">专题活动</span>
+                    </div>
+              	</div>
+         	</li>
+		</ul>
+	</div>
+</div>
+<div class="cbbfixed">
+	<a href="#" id="weixin"><span class="icos ico15"></span></a>
+    <a href="#" id="gotop"><span class="icos ico16"></span></a>
+</div>
+</body>
+</html>
